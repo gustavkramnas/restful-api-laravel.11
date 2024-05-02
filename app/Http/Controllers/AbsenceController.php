@@ -4,23 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\AbsenceModel;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Validation\ValidationException;
 
 class AbsenceController extends Controller
 {
     public function store(Request $request)
     {
         try {
-            $absence = AbsenceModel::create($request->all());
+            $validatedData = $request->validate([
+                'employee_id' => 'required',
+                'date' => 'required|date',
+                'reason' => 'required',
+                'absence_type' => 'required',
+                'medical_certificate' => 'required|boolean',
+                'medical_certificate_photos' => 'required|array',
+                'approval_by' => 'required',
+                'approval_date' => 'required|date',
+                'comments' => 'required',
+            ]);
+
+            $absence = AbsenceModel::create($validatedData);
 
             return response()->json([
                 'message' => 'Frånvaroanmälan skapad',
                 'data' => $absence
             ], 201);
-        } catch (ModelNotFoundException $e) {
-            return response()->json(['message' => 'Resursen hittades inte'], 404);
+        } catch (ValidationException $e) {
+            return response()->json(['message' => 'Ogiltig data: ' . $e->getMessage()], 422);
         } catch (\Exception $e) {
-
             return response()->json(['message' => 'Ett fel uppstod: ' . $e->getMessage()], 500);
         }
     }
