@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->date('date');
             $table->string('reason');
             $table->string('absence_type');
-            $table->boolean('medical_certificate');
-            $table->json('medical_certificate_photos');
+            $table->boolean('absence_certificate');
+            $table->json('absence_certificate_photos');
             $table->string('approval_by');
             $table->date('approval_date');
             $table->string('comments');

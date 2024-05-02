@@ -16,15 +16,15 @@ class AbsenceModel extends Model
         'date',
         'reason',
         'absence_type',
-        'medical_certificate',
-        'medical_certificate_photos',
+        'absence_certificate',
+        'absence_certificate_photos',
         'approval_by',
         'approval_date',
         'comments',
     ];
 
     protected $casts = [
-        'medical_certificate_photos' => 'array',
+        'absence_certificate_photos' => 'array',
     ];
 
 }
