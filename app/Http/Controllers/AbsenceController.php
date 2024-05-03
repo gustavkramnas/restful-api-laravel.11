@@ -23,6 +23,12 @@ class AbsenceController extends Controller
                 'comments' => 'required',
             ]);
 
+            // Check for any extra attributes
+            $extraAttributes = array_diff_key($request->all(), array_flip(array_keys($validatedData)));
+            if (!empty($extraAttributes)) {
+                throw ValidationException::withMessages(['extra_attributes' => 'Extra attribut är inte tillåtna.']);
+            }
+
             $absence = AbsenceModel::create($validatedData);
 
             return response()->json([
@@ -30,7 +36,15 @@ class AbsenceController extends Controller
                 'data' => $absence
             ], 201);
         } catch (ValidationException $e) {
-            return response()->json(['message' => 'Ogiltig data: ' . $e->getMessage()], 422);
+            $messages = ['message' => 'Ogiltig data'];
+
+            if ($e->validator->errors()->has('extra_attributes')) {
+                $messages['extra_attributes'] = $e->getMessage();
+                return response()->json($messages, 422);
+            } else {
+                $messages['required_attributes'] = 'Obligatoriska attribut saknas: ' . $e->getMessage();
+                return response()->json($messages, 422);
+            }
         } catch (\Exception $e) {
             return response()->json(['message' => 'Ett fel uppstod: ' . $e->getMessage()], 500);
         }
