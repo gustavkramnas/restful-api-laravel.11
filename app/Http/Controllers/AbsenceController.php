@@ -38,7 +38,10 @@ class AbsenceController extends Controller
         } catch (ValidationException $e) {
             $messages = ['message' => 'Ogiltig data'];
 
-            if ($e->validator->errors()->has('extra_attributes')) {
+            // Använd $e->errors() för att hämta valideringsfel
+            $validationErrors = $e->errors();
+
+            if (isset($validationErrors['extra_attributes'])) {
                 $messages['extra_attributes'] = $e->getMessage();
                 return response()->json($messages, 422);
             } else {
