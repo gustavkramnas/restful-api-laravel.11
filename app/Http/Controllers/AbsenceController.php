@@ -22,6 +22,7 @@ class AbsenceController extends Controller
                 'date' => 'required|date',
                 'reason' => 'required',
                 'absence_type' => 'required',
+                'absence_percentage-level' => 'required',
                 'absence_certificate' => 'required|boolean',
                 'absence_certificate_photos' => 'array',
                 'approval_by' => 'required',

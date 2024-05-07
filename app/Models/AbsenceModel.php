@@ -16,6 +16,7 @@ class AbsenceModel extends Model
         'date',
         'reason',
         'absence_type',
+        'absence_percentage-level',
         'absence_certificate',
         'absence_certificate_photos',
         'approval_by',
