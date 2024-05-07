@@ -20,6 +20,8 @@ class AbsenceModel extends Model
         'absence_certificate_photos',
         'approval_by',
         'approval_date',
+        'phone_number',
+        'email',
         'comments',
     ];
 

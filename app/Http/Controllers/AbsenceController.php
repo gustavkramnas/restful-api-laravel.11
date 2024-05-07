@@ -8,6 +8,12 @@ use Illuminate\Validation\ValidationException;
 
 class AbsenceController extends Controller
 {
+
+    public function index()
+    {
+        return view('layouts/create_absence_blade');
+    }
+
     public function store(Request $request)
     {
         try {
@@ -17,11 +23,18 @@ class AbsenceController extends Controller
                 'reason' => 'required',
                 'absence_type' => 'required',
                 'absence_certificate' => 'required|boolean',
-                'absence_certificate_photos' => 'required|array',
+                'absence_certificate_photos' => 'array',
                 'approval_by' => 'required',
                 'approval_date' => 'required|date',
+                'phone_number' => 'required',
+                'email' => 'required',
                 'comments' => 'required',
             ]);
+
+            // Check if absence_certificate_photos array is empty
+            if (empty($validatedData['absence_certificate_photos'])) {
+                $validatedData['absence_certificate_photos'] = ['user did not upload any file'];
+            }
 
             // Check for any extra attributes
             $extraAttributes = array_diff_key($request->all(), array_flip(array_keys($validatedData)));
