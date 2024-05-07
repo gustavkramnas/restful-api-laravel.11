@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AbsenceController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [AbsenceController::class, 'submitAbsenceReport']);

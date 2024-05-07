@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 class AbsenceController extends Controller
 {
 
-    public function index()
+    public function submitAbsenceReport()
     {
         return view('layouts/create_absence_blade');
     }
