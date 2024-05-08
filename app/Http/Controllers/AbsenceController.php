@@ -11,7 +11,7 @@ class AbsenceController extends Controller
 
     public function submitAbsenceReport()
     {
-        return view('layouts/create_absence_blade');
+        return view('pages/create_absence_blade');
     }
 
     public function store(Request $request)
