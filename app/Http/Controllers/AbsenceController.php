@@ -20,6 +20,8 @@ class AbsenceController extends Controller
             $validatedData = $request->validate([
                 'employee_id' => 'required',
                 'date' => 'required|date',
+                'phone_number' => 'required',
+                'email' => 'required',
                 'reason' => 'required',
                 'absence_type' => 'required',
                 'absence_percentage-level' => 'required',
@@ -27,8 +29,6 @@ class AbsenceController extends Controller
                 'absence_certificate_photos' => 'array',
                 'approval_by' => 'required',
                 'approval_date' => 'required|date',
-                'phone_number' => 'required',
-                'email' => 'required',
                 'comments' => 'required',
             ]);
 

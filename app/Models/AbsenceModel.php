@@ -14,6 +14,8 @@ class AbsenceModel extends Model
     protected $fillable = [
         'employee_id',
         'date',
+        'phone_number',
+        'email',
         'reason',
         'absence_type',
         'absence_percentage-level',
@@ -21,8 +23,6 @@ class AbsenceModel extends Model
         'absence_certificate_photos',
         'approval_by',
         'approval_date',
-        'phone_number',
-        'email',
         'comments',
     ];
 

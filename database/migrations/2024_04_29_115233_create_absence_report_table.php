@@ -12,6 +12,8 @@ return new class extends Migration {
             $table->id();
             $table->string('employee_id');
             $table->date('date');
+            $table->string('phone_number');
+            $table->string('email');
             $table->string('reason');
             $table->string('absence_type');
             $table->string('absence_percentage-level');
@@ -19,8 +21,6 @@ return new class extends Migration {
             $table->json('absence_certificate_photos');
             $table->string('approval_by');
             $table->date('approval_date');
-            $table->string('phone_number');
-            $table->string('email');
             $table->string('comments');
             $table->timestamps();
         });
