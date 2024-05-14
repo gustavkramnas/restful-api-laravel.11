@@ -16,8 +16,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Attribut</th>
-                                <th scope="col">Värde</th>
+                                <th scope="col" class="text-uppercase text-decoration-underline">Attribut</th>
+                                <th scope="col" class="text-uppercase text-decoration-underline">Värde</th>
                             </tr>
                         </thead>
                         <tbody>
