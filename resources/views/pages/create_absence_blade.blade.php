@@ -75,16 +75,6 @@
                                         <p class="text-muted small user-select-none">Saknar du intyg, kryssa ej i rutan
                                         </p>
                                     </div>
-
-
-                                    <div class="mb-3">
-                                        <label for="absence-certificate-photos" class="form-label">Foton på frånvaro
-                                            intyg <span id="required-indicator" style="display:none">*</span></label>
-                                        <input type="file" class="form-control" id="absence-certificate-photos"
-                                            name="absence_certificate_photos[]" multiple>
-                                        <p id="error-message" class="text-danger d-none user-select-none">Du måste
-                                            markera rutan 'Frånvaro intyg' innan du kan ladda upp en fil.</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>

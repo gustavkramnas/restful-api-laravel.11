@@ -54,10 +54,6 @@
                                 <td>{{ $absence->absence_certificate ? 'Ja' : 'Nej' }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Foton på frånvaro intyg</th>
-                                <td>{{ implode(', ', $absence->absence_certificate_photos) }}</td>
-                            </tr>
-                            <tr>
                                 <th scope="row">Godkänd av</th>
                                 <td>{{ $absence->approval_by }}</td>
                             </tr>
