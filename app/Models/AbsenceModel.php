@@ -2,27 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AbsenceModel extends Model
 {
-    use HasFactory;
 
     protected $table = 'absence_reports'; //tabell namn i DB
 
     protected $fillable = [
         'employee_id',
         'date',
+        'phone_number',
+        'email',
         'reason',
         'absence_type',
-        'absence_percentage-level',
+        'absence_percentage_level',
         'absence_certificate',
         'absence_certificate_photos',
         'approval_by',
         'approval_date',
-        'phone_number',
-        'email',
         'comments',
     ];
 
