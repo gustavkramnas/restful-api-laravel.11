@@ -17,6 +17,7 @@
                         <div class="card mb-1 border border-dark bg-light">
                             <div class="card-body">
                                 <h5 class="card-title mb-4 user-select-none">Personlig information</h5>
+                                <p class="fst-italic user-select-none">* Obligatoriska fält</p>
                                 <div id="personal-info-form">
                                     <div class="mb-3">
                                         <label for="employee-id" class="form-label">Anställnings-ID *</label>
@@ -25,8 +26,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="date" class="form-label">Datum för frånvaro *</label>
-                                        <input type="date" class="form-control" id="date" value="2024-04-19" name="date"
+                                        <p class="text-muted small mb-0">Startdatum</p>
+                                        <input type="date" class="form-control" id="start_date" name="start_date"
                                             required>
+                                        <p class="text-muted small mb-0">Slutdatum</p>
+                                        <input type="date" class="form-control" id="end_date" name="end_date" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="phone-number" class="form-label">Telefonnummer *</label>

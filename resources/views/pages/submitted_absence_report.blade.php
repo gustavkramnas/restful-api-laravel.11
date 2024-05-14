@@ -26,8 +26,12 @@
                                 <td>{{ $absence->employee_id }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Datum för frånvaro</th>
-                                <td>{{ $absence->date }}</td>
+                                <th scope="row">Startdatum</th>
+                                <td>{{ $absence->start_date }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Slutdatum</th>
+                                <td>{{ $absence->end_date }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Telefonnummer</th>

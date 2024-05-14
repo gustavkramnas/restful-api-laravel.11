@@ -29,7 +29,8 @@ class AbsenceController extends Controller
 
             $validatedData = $request->validate([
                 'employee_id' => 'required',
-                'date' => 'required|date',
+                'start_date' => 'required|date',
+                'end_date' => 'required|date',
                 'phone_number' => 'required',
                 'email' => 'required',
                 'reason' => 'required',
