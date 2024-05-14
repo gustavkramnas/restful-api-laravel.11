@@ -26,8 +26,12 @@
                                 <td>{{ $absence->employee_id }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Datum för frånvaro</th>
-                                <td>{{ $absence->date }}</td>
+                                <th scope="row">Startdatum</th>
+                                <td>{{ $absence->start_date }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Slutdatum</th>
+                                <td>{{ $absence->end_date }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Telefonnummer</th>
@@ -52,10 +56,6 @@
                             <tr>
                                 <th scope="row">Frånvaro intyg</th>
                                 <td>{{ $absence->absence_certificate ? 'Ja' : 'Nej' }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Foton på frånvaro intyg</th>
-                                <td>{{ implode(', ', $absence->absence_certificate_photos) }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Godkänd av</th>

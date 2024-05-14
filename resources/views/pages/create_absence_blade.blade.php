@@ -17,6 +17,7 @@
                         <div class="card mb-1 border border-dark bg-light">
                             <div class="card-body">
                                 <h5 class="card-title mb-4 user-select-none">Personlig information</h5>
+                                <p class="fst-italic user-select-none">* Obligatoriska fält</p>
                                 <div id="personal-info-form">
                                     <div class="mb-3">
                                         <label for="employee-id" class="form-label">Anställnings-ID *</label>
@@ -25,8 +26,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="date" class="form-label">Datum för frånvaro *</label>
-                                        <input type="date" class="form-control" id="date" value="2024-04-19" name="date"
+                                        <p class="text-muted small mb-0">Startdatum</p>
+                                        <input type="date" class="form-control" id="start_date" name="start_date"
                                             required>
+                                        <p class="text-muted small mb-0">Slutdatum</p>
+                                        <input type="date" class="form-control" id="end_date" name="end_date" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="phone-number" class="form-label">Telefonnummer *</label>
@@ -74,16 +78,6 @@
                                             intyg</label>
                                         <p class="text-muted small user-select-none">Saknar du intyg, kryssa ej i rutan
                                         </p>
-                                    </div>
-
-
-                                    <div class="mb-3">
-                                        <label for="absence-certificate-photos" class="form-label">Foton på frånvaro
-                                            intyg <span id="required-indicator" style="display:none">*</span></label>
-                                        <input type="file" class="form-control" id="absence-certificate-photos"
-                                            name="absence_certificate_photos[]" multiple>
-                                        <p id="error-message" class="text-danger d-none user-select-none">Du måste
-                                            markera rutan 'Frånvaro intyg' innan du kan ladda upp en fil.</p>
                                     </div>
                                 </div>
                             </div>

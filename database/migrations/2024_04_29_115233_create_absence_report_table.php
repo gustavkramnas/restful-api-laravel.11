@@ -11,14 +11,14 @@ return new class extends Migration {
         Schema::create('absence_reports', function (Blueprint $table) {
             $table->id();
             $table->string('employee_id');
-            $table->date('date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('phone_number');
             $table->string('email');
             $table->string('reason');
             $table->string('absence_type');
             $table->string('absence_percentage_level');
             $table->boolean('absence_certificate');
-            $table->json('absence_certificate_photos');
             $table->string('approval_by');
             $table->date('approval_date');
             $table->string('comments');
