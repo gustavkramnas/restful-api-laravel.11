@@ -1,7 +1,7 @@
-// Väntar på att dokumentet ska laddas innan körning
 document.addEventListener("DOMContentLoaded", () => {
-    // Referenser till HTML-elementen
-    const certificateCheckbox = document.getElementById("absence-certificate");
+    const certificateCheckbox = document.getElementById(
+        "absence-certificate-checkbox"
+    );
     const certificatePhotosInput = document.getElementById(
         "absence-certificate-photos"
     );
@@ -23,10 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Lyssnar efter ändringar i kryssrutan och visar felmeddelandet vid behov
     certificateCheckbox.addEventListener("change", updateUI);
+
     certificatePhotosInput.addEventListener("click", showErrorIfUnchecked);
 
-    // Direktanrop av updateUI-funktionen för att initiera gränssnittet
     updateUI();
+
+    // Lägg till en händelselyssnare för formuläret för att ändra värdet för absence_certificate innan det skickas
+    document.getElementById("absence-form").addEventListener("submit", () => {
+        document.querySelector("input[name='absence_certificate']").value =
+            certificateCheckbox.checked;
+    });
 });

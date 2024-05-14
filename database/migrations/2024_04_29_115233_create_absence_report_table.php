@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('email');
             $table->string('reason');
             $table->string('absence_type');
-            $table->string('absence_percentage-level');
+            $table->string('absence_percentage_level');
             $table->boolean('absence_certificate');
             $table->json('absence_certificate_photos');
             $table->string('approval_by');

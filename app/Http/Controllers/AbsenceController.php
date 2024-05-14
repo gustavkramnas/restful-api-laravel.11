@@ -14,9 +14,21 @@ class AbsenceController extends Controller
         return view('pages/create_absence_blade');
     }
 
+    public function showSubmittedAbsenceReport($id)
+    {
+        $absence = AbsenceModel::findOrFail($id);
+        return view('pages/submitted_absence_report', ['absence' => $absence]);
+    }
+
+
     public function store(Request $request)
     {
         try {
+
+            // Validera och filtrera värdet av 'absence_certificate'-parametern för att se om det är sant eller falskt.
+            $request->merge(['absence_certificate' => filter_var($request->input('absence_certificate'), FILTER_VALIDATE_BOOLEAN)]);
+
+
             $validatedData = $request->validate([
                 'employee_id' => 'required',
                 'date' => 'required|date',
@@ -24,7 +36,7 @@ class AbsenceController extends Controller
                 'email' => 'required',
                 'reason' => 'required',
                 'absence_type' => 'required',
-                'absence_percentage-level' => 'required',
+                'absence_percentage_level' => 'required',
                 'absence_certificate' => 'boolean',
                 'absence_certificate_photos' => 'array',
                 'approval_by' => 'required',
@@ -43,13 +55,14 @@ class AbsenceController extends Controller
                 throw ValidationException::withMessages(['extra_attributes' => 'Extra attribut är inte tillåtna.']);
             }
 
+            // Skapa frånvaron med de validerade uppgifterna och lagra den i databasen.
             $absence = AbsenceModel::create($validatedData);
 
-            return response()->json([
-                'message' => 'Frånvaroanmälan skapad',
-                'data' => $absence
-            ], 201);
+            // Omdirigera användaren till en sida för att visa den skapade rapporten.
+            return redirect()->route('showSubmittedAbsenceReport', ['id' => $absence->id]);
+
         } catch (ValidationException $e) {
+            // Hantera valideringsfel
             $messages = ['message' => 'Ogiltig data'];
 
             // Använd $e->errors() för att hämta valideringsfel

@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AbsenceModel extends Model
 {
-    use HasFactory;
 
     protected $table = 'absence_reports'; //tabell namn i DB
 
@@ -18,7 +16,7 @@ class AbsenceModel extends Model
         'email',
         'reason',
         'absence_type',
-        'absence_percentage-level',
+        'absence_percentage_level',
         'absence_certificate',
         'absence_certificate_photos',
         'approval_by',
