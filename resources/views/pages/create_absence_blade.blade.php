@@ -8,8 +8,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 
-    <body class="p-4">
-        <div class="container bg-grey py-3 border border-dark rounded bg-info">
+    <body class="p-4 bg-grey">
+        <div class="container py-3">
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-9 col-sm-9">
                     <form method="POST" action="{{ route('absences') }}" id="absence-form">
