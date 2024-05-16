@@ -8,4 +8,6 @@ Route::get('/', [AbsenceController::class, 'submitAbsenceReport']);
 
 Route::get('/submittedAbsenceReport/{id}', [AbsenceController::class, 'showSubmittedAbsenceReport'])->name('showSubmittedAbsenceReport');
 
+Route::get('/submittedAbsenceReport', [AbsenceController::class, 'showAbsenceReportError']);
+
 

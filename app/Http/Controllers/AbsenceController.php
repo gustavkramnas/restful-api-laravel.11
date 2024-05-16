@@ -20,6 +20,11 @@ class AbsenceController extends Controller
         return view('pages/submitted_absence_report', ['absence' => $absence]);
     }
 
+    public function showAbsenceReportError()
+    {
+        return response()->json(['error' => 'Kan inte hitta något rapport ID'], 404);
+    }
+
 
     public function store(Request $request)
     {
